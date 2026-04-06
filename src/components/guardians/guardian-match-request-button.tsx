@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
+import { isUxVerificationMode } from "@/lib/ux-verification";
 import { HeartHandshake, Loader2 } from "lucide-react";
 
 export function GuardianMatchRequestButton({
@@ -24,6 +25,10 @@ export function GuardianMatchRequestButton({
     setLoading(true);
     setMsg(null);
     try {
+      if (isUxVerificationMode()) {
+        setMsg(t("matchRequestSent"));
+        return;
+      }
       const res = await fetch("/api/traveler/match-requests", {
         method: "POST",
         credentials: "include",

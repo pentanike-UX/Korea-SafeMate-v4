@@ -8,7 +8,7 @@ export type StrippedPath = {
 };
 
 /**
- * Strips optional locale prefix (ko, ja). Default locale `en` has no prefix with `localePrefix: "as-needed"`.
+ * Strips optional locale prefix (en, ja). Default locale `ko` has no prefix with `localePrefix: "as-needed"`.
  */
 export function stripLocaleFromPathname(pathname: string): StrippedPath {
   const parts = pathname.split("/").filter(Boolean);
@@ -38,7 +38,7 @@ export function loginPathWithNext(pathname: string, search: string, locale: AppL
   return `${base}?next=${encodeURIComponent(full)}`;
 }
 
-/** Prefix path with `/ko` / `/ja` when not default locale (matches next-intl `as-needed`). */
+/** Prefix path with `/en` / `/ja` when not default locale (matches next-intl `as-needed`). */
 export function withLocalePath(locale: AppLocale, path: string): string {
   const p = path.startsWith("/") ? path : `/${path}`;
   if (locale === routing.defaultLocale) return p;

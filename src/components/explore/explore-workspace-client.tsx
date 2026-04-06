@@ -6,10 +6,13 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { WorkspaceBinder, type WorkspaceRegistration } from "@/components/app-shell/workspace-registry";
 import { FullBleedAmbientMap } from "@/components/map-shell/full-bleed-ambient-map";
 import { cn } from "@/lib/utils";
+import {
+  EXPLORE_QUICK_FILTERS,
+  exploreMatchesQuickFilter,
+  isExploreQuickFilterId,
+} from "@/lib/v4/explore-quick-filter";
 
 type Tab = "routes" | "spots" | "stories";
-
-const FILTERS = ["calm", "night", "solo", "river"] as const;
 
 export function ExploreWorkspaceClient({
   routes,
@@ -34,17 +37,14 @@ export function ExploreWorkspaceClient({
   const [filterKey, setFilterKey] = useState<string | null>(null);
 
   const filteredRoutes = useMemo(() => {
-    if (!filterKey) return routes;
-    return routes.filter((r) => r.summary.toLowerCase().includes(filterKey) || r.title.toLowerCase().includes(filterKey));
+    if (!filterKey || !isExploreQuickFilterId(filterKey)) return routes;
+    return routes.filter((r) => exploreMatchesQuickFilter(filterKey, [r.title, r.summary]));
   }, [routes, filterKey]);
 
   const filteredSpots = useMemo(() => {
-    if (!filterKey) return spots;
-    return spots.filter(
-      (s) =>
-        s.vibeTags.some((v) => v.toLowerCase().includes(filterKey)) ||
-        s.name.toLowerCase().includes(filterKey) ||
-        s.shortDescription.toLowerCase().includes(filterKey),
+    if (!filterKey || !isExploreQuickFilterId(filterKey)) return spots;
+    return spots.filter((s) =>
+      exploreMatchesQuickFilter(filterKey, [s.name, s.shortDescription, ...s.vibeTags]),
     );
   }, [spots, filterKey]);
 
@@ -74,7 +74,7 @@ export function ExploreWorkspaceClient({
       <div>
         <p className="text-muted-foreground mb-2 text-[10px] font-semibold tracking-widest uppercase">{t("filters")}</p>
         <div className="flex flex-wrap gap-2">
-          {FILTERS.map((f) => (
+          {EXPLORE_QUICK_FILTERS.map((f) => (
             <button
               key={f}
               type="button"

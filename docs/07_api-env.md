@@ -24,6 +24,7 @@
 | `NEXT_PUBLIC_NAVER_MAPS_CLIENT_ID` | Naver Dynamic Map |
 | `NEXT_PUBLIC_NAVER_MAPS_USE_MOCK` | Naver 목 사용 여부 |
 | `NEXT_PUBLIC_MAP_PROVIDER` | `schematic` 시 SVG/폴백 |
+| `NEXT_PUBLIC_UX_VERIFICATION` | `1`이면 가디언 저장·매칭 요청·부킹 시트 등에서 `/api/*` 호출 없이 성공 플로우만 시뮬레이션 (UX 검증용) |
 | `NEXT_PUBLIC_MAP_STYLE_URL` | MapLibre 스타일 URL |
 | `NEXT_PUBLIC_SITE_URL` | OAuth·캐노니컬 ( `src/lib/site-url.ts` ) |
 | `NEXT_PUBLIC_OAUTH_*` | 리다이렉트 폴백 |

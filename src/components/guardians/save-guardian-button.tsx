@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
+import { isUxVerificationMode } from "@/lib/ux-verification";
 import { Bookmark, Heart, Loader2 } from "lucide-react";
 
 export function SaveGuardianButton({
@@ -22,6 +23,10 @@ export function SaveGuardianButton({
     setLoading(true);
     setHint(null);
     try {
+      if (isUxVerificationMode()) {
+        setHint(t("saveAdded"));
+        return;
+      }
       const res = await fetch("/api/traveler/saved-guardians", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

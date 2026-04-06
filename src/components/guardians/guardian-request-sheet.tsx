@@ -20,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GUARDIAN_AVATAR_COVER_CLASS } from "@/lib/guardian-profile-images";
+import { isUxVerificationMode } from "@/lib/ux-verification";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
@@ -292,19 +293,24 @@ export function GuardianRequestSheetHost({
 
     setSubmitting(true);
     try {
-      const res = await fetch("/api/bookings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = (await res.json()) as { id?: string; saved?: boolean; error?: string };
-      if (!res.ok) throw new Error(data.error ?? t("errorSubmit"));
-      const id = data.id ?? "unknown";
+      let id: string;
+      let saved = false;
+      if (isUxVerificationMode()) {
+        id = `ux-mock-${Date.now()}`;
+        saved = true;
+      } else {
+        const res = await fetch("/api/bookings", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = (await res.json()) as { id?: string; saved?: boolean; error?: string };
+        if (!res.ok) throw new Error(data.error ?? t("errorSubmit"));
+        id = data.id ?? "unknown";
+        saved = Boolean(data.saved);
+      }
       try {
-        sessionStorage.setItem(
-          "ksm_booking_success",
-          JSON.stringify({ id, payload, saved: Boolean(data.saved) }),
-        );
+        sessionStorage.setItem("ksm_booking_success", JSON.stringify({ id, payload, saved }));
       } catch {
         /* ignore */
       }
