@@ -42,7 +42,7 @@ function HomePanelBody({
               type="button"
               onClick={() => setRegion(r.key)}
               className={cn(
-                "rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors sm:text-sm",
+                "min-h-10 rounded-full px-3.5 py-2 text-xs font-medium transition-colors sm:text-sm",
                 region === r.key
                   ? "bg-[var(--text-strong)] text-[var(--text-on-brand)]"
                   : "bg-card text-[var(--text-strong)]/85 ring-1 ring-[var(--border-default)] hover:bg-[var(--brand-primary-soft)]",
@@ -63,7 +63,7 @@ function HomePanelBody({
               asChild
               variant="secondary"
               size="sm"
-              className="h-9 rounded-full border-0 bg-card px-3.5 text-xs font-medium shadow-none ring-1 ring-[var(--border-default)] hover:bg-[var(--brand-primary-soft)] sm:text-sm"
+              className="h-10 rounded-full border-0 bg-card px-3.5 text-xs font-medium shadow-none ring-1 ring-[var(--border-default)] hover:bg-[var(--brand-primary-soft)] sm:text-sm"
             >
               <Link href={`/planner?mood=${k}`}>{t(`mood.${k}`)}</Link>
             </Button>

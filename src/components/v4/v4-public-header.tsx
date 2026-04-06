@@ -44,7 +44,7 @@ function V4HeaderNavRow({
             href={item.href}
             className={cn(
               "rounded-[var(--radius-md)] text-sm font-medium transition-colors duration-200",
-              mobile ? "min-h-12 px-3 py-3 text-base" : "px-3 py-2",
+              mobile ? "min-h-12 px-3 py-3 text-base" : "inline-flex min-h-10 items-center px-3 py-2",
               active
                 ? "bg-[var(--brand-trust-blue-soft)] text-[var(--brand-trust-blue)]"
                 : "text-[var(--text-strong)]/80 hover:bg-[var(--brand-primary-soft)] hover:text-[var(--text-strong)]",
@@ -105,7 +105,7 @@ export function V4PublicHeader({ variant = "default" }: { variant?: "default" | 
           </div>
         </Link>
 
-        <div className="hidden min-w-0 flex-1 justify-center lg:flex">
+        <div className="hidden min-w-0 flex-1 justify-center md:flex">
           <V4HeaderNavRow pathname={pathname} t={t} />
         </div>
 
@@ -138,7 +138,7 @@ export function V4PublicHeader({ variant = "default" }: { variant?: "default" | 
 
           <Sheet>
             <SheetTrigger
-              className="border-border/80 bg-card text-foreground inline-flex size-9 items-center justify-center rounded-[var(--radius-md)] border shadow-sm lg:hidden"
+              className="border-border/80 bg-card text-foreground inline-flex size-11 items-center justify-center rounded-[var(--radius-md)] border shadow-sm md:hidden"
               aria-label={tHeader("openMenu")}
             >
               <Menu className="size-[1.2rem]" strokeWidth={1.75} />

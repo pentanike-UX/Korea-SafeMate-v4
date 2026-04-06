@@ -46,7 +46,7 @@ export function V4MobileBottomNav({ variant = "bar" }: { variant?: "bar" | "floa
   return (
     <nav
       className={cn(
-        "z-50 flex pb-[env(safe-area-inset-bottom)] backdrop-blur-xl lg:hidden",
+        "z-50 flex pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden",
         floating
           ? "border-border/50 bg-[color-mix(in_srgb,var(--bg-surface)_92%,transparent)] supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--bg-surface)_86%,transparent)] fixed right-4 bottom-4 left-4 rounded-[28px] border shadow-[0_20px_56px_rgba(15,23,42,0.09)]"
           : "border-border/60 bg-[color-mix(in_srgb,var(--bg-surface)_94%,transparent)] supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--bg-surface)_88%,transparent)] fixed right-0 bottom-0 left-0 border-t",

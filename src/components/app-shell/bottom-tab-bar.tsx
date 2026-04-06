@@ -37,7 +37,7 @@ export function BottomTabBar() {
   return (
     <nav
       className={cn(
-        "border-border/55 bg-[color-mix(in_srgb,var(--bg-surface)_96%,transparent)] fixed right-0 bottom-0 left-0 z-50 flex border-t pb-[env(safe-area-inset-bottom)] shadow-[0_-12px_40px_rgba(15,23,42,0.05)] supports-[backdrop-filter]:backdrop-blur-xl lg:hidden",
+        "border-border/55 bg-[color-mix(in_srgb,var(--bg-surface)_96%,transparent)] fixed right-0 bottom-0 left-0 z-50 flex border-t pb-[env(safe-area-inset-bottom)] shadow-[0_-12px_40px_rgba(15,23,42,0.05)] supports-[backdrop-filter]:backdrop-blur-xl md:hidden",
       )}
       aria-label={t("aria")}
     >

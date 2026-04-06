@@ -15,7 +15,7 @@ export function RouteQuickStatsFloater({
   return (
     <div
       className={cn(
-        "pointer-events-none absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-3 z-10 max-w-[min(100%,18rem)] sm:left-4 lg:bottom-8",
+        "pointer-events-none absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-3 z-10 max-w-[min(100%,18rem)] sm:left-4 md:bottom-8",
         className,
       )}
     >

@@ -7,7 +7,7 @@ export function PublicSiteShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <V4PublicHeader />
-      <main className="flex-1 pb-[calc(var(--touch-target)+env(safe-area-inset-bottom))] lg:pb-0">{children}</main>
+      <main className="flex-1 pb-[calc(var(--touch-target)+env(safe-area-inset-bottom))] md:pb-0">{children}</main>
       <SiteFooter />
       <V4MobileBottomNav />
       <GuardianRequestSheetGlobal />

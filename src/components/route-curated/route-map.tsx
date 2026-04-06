@@ -11,7 +11,7 @@ const InnerLibre = dynamic(
   () => import("@/components/route-curated/curated-route-map-inner").then((m) => ({ default: m.CuratedRouteMapInner })),
   {
     ssr: false,
-    loading: () => <div className="bg-muted/50 h-full min-h-[200px] w-full animate-pulse rounded-none lg:rounded-[var(--radius-card)]" aria-hidden />,
+    loading: () => <div className="bg-muted/50 h-full min-h-[200px] w-full animate-pulse rounded-none md:rounded-[var(--radius-card)]" aria-hidden />,
   },
 );
 
@@ -20,7 +20,7 @@ const InnerNaver = dynamic(
     import("@/components/route-curated/curated-route-map-naver-inner").then((m) => ({ default: m.CuratedRouteMapNaverInner })),
   {
     ssr: false,
-    loading: () => <div className="bg-muted/50 h-full min-h-[200px] w-full animate-pulse rounded-none lg:rounded-[var(--radius-card)]" aria-hidden />,
+    loading: () => <div className="bg-muted/50 h-full min-h-[200px] w-full animate-pulse rounded-none md:rounded-[var(--radius-card)]" aria-hidden />,
   },
 );
 
@@ -45,7 +45,7 @@ export function RouteMap(props: CuratedRouteMapInnerProps) {
   if (mapErr) {
     return (
       <RouteMapFault
-        className="rounded-none lg:rounded-[var(--radius-card)]"
+        className="rounded-none md:rounded-[var(--radius-card)]"
         message={t("mapLoadFailed", { detail: mapErr })}
         onRetry={retry}
         retryLabel={t("retryMap")}

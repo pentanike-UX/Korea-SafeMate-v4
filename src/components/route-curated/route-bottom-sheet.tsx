@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 type Snap = "collapsed" | "half" | "full";
 
 const SNAP_PCT: Record<Snap, number> = {
-  collapsed: 0.18,
-  half: 0.5,
-  full: 0.88,
+  /** Peek: enough to read handle + one line on phones */
+  collapsed: 0.2,
+  /** Taller default so tablet/phone see more panel without dragging to full */
+  half: 0.55,
+  full: 0.9,
 };
 
 export function RouteBottomSheet({
@@ -79,7 +81,7 @@ export function RouteBottomSheet({
     <div
       ref={sheetRef}
       className={cn(
-        "border-border/60 bg-[var(--bg-surface)] fixed right-0 bottom-0 left-0 z-40 flex flex-col rounded-t-[var(--radius-card)] border-x border-t shadow-[var(--shadow-md)] lg:relative lg:z-0 lg:rounded-[var(--radius-card)] lg:border lg:shadow-[var(--shadow-sm)]",
+        "border-border/60 bg-[var(--bg-surface)] fixed right-0 bottom-0 left-0 z-40 flex flex-col rounded-t-[var(--radius-card)] border-x border-t shadow-[var(--shadow-md)] md:relative md:z-0 md:rounded-[var(--radius-card)] md:border md:shadow-[var(--shadow-sm)]",
         !dragging && "transition-[height] duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] motion-reduce:transition-none",
         className,
       )}
@@ -91,10 +93,10 @@ export function RouteBottomSheet({
       <div
         role="slider"
         aria-valuenow={Math.round(pct * 100)}
-        aria-valuemin={18}
-        aria-valuemax={88}
+        aria-valuemin={20}
+        aria-valuemax={90}
         aria-label="Resize sheet"
-        className="flex cursor-grab touch-none justify-center py-2.5 active:cursor-grabbing"
+        className="flex min-h-[44px] cursor-grab touch-none items-center justify-center py-1 active:cursor-grabbing"
         onPointerDown={onPointerDownHandle}
         onPointerUp={onPointerUpHandle}
       >

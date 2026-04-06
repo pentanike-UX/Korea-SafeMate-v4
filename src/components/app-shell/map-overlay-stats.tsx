@@ -17,7 +17,7 @@ export function MapOverlayStats({
     <RouteQuickStatsFloater
       distanceMeters={distanceMeters}
       durationMinutes={durationMinutes}
-      className={cn("bottom-[calc(4.5rem+env(safe-area-inset-bottom))] lg:bottom-8", className)}
+      className={cn("bottom-[calc(4.5rem+env(safe-area-inset-bottom))] md:bottom-8", className)}
     />
   );
 }

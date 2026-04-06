@@ -338,7 +338,7 @@ export function GuardianRequestSheetHost({
         side={side}
         className={cn(
           "flex w-full flex-col gap-0 overflow-hidden p-0",
-          side === "right" ? "sm:max-w-lg" : "max-h-[92vh] rounded-t-2xl",
+          side === "right" ? "sm:max-w-lg" : "max-h-[min(92dvh,calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom)-1.5rem))] rounded-t-2xl",
         )}
       >
         <SheetHeader className="border-border/60 shrink-0 space-y-3 border-b px-5 py-4 sm:px-6">

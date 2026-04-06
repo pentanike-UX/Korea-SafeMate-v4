@@ -33,7 +33,7 @@ export function IconRail({
     <aside
       className={cn(
         RAIL_W,
-        "border-border/60 bg-[color-mix(in_srgb,var(--bg-surface)_96%,transparent)] z-30 hidden shrink-0 flex-col border-r py-3 shadow-[4px_0_32px_rgba(15,23,42,0.04)] supports-[backdrop-filter]:backdrop-blur-md lg:flex",
+        "border-border/60 bg-[color-mix(in_srgb,var(--bg-surface)_96%,transparent)] z-30 hidden shrink-0 flex-col border-r py-3 shadow-[4px_0_32px_rgba(15,23,42,0.04)] supports-[backdrop-filter]:backdrop-blur-md md:flex",
       )}
       aria-label={t("aria")}
     >

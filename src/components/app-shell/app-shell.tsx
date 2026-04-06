@@ -62,8 +62,8 @@ export function AppShell() {
 
   return (
     <>
-      {/* Desktop */}
-      <div className="hidden h-full min-h-0 w-full min-w-0 lg:flex">
+      {/* Tablet + desktop: rail + panel + map (md+, Tailwind 768px) */}
+      <div className="hidden h-full min-h-0 w-full min-w-0 md:flex">
         <IconRail
           pathname={pathname}
           onOpenHelp={openHelp}
@@ -100,13 +100,13 @@ export function AppShell() {
         </FullScreenMap>
       </div>
 
-      {/* Mobile */}
-      <div className="relative h-full min-h-0 w-full min-w-0 lg:hidden">
+      {/* Phone: compact header + bottom sheet + tab bar */}
+      <div className="relative h-full min-h-0 w-full min-w-0 md:hidden">
         <FullScreenMap overlays={registration?.mapOverlays} className="!absolute inset-0">
           {registration?.map ?? <div className="bg-[var(--bg-page)] h-full w-full" />}
         </FullScreenMap>
         <CompactWorkspaceHeader title={title || "…"} />
-        <BottomSheet footer={utilityFooter} initialSnap={snap}>
+        <BottomSheet key={pathname} footer={utilityFooter} initialSnap={snap}>
           {registration ? (
             <>
               <PanelHeader

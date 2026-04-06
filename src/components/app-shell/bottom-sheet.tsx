@@ -22,7 +22,7 @@ export function BottomSheet({
       initialSnap={initialSnap}
       footer={footer}
       className={cn(
-        "z-40 lg:hidden",
+        "z-40 md:hidden",
         "bottom-[calc(3.5rem+env(safe-area-inset-bottom))] rounded-t-[24px] border-x border-t shadow-[0_-20px_56px_rgba(15,23,42,0.08)]",
         className,
       )}

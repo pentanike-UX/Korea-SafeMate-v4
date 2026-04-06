@@ -35,14 +35,14 @@ export function FullScreenRouteShell({
       <aside
         className={cn(
           panelSurface,
-          "hidden h-[min(100dvh-6rem,calc(100dvh-4rem))] w-[min(420px,calc(100vw-3rem))] flex-col overflow-hidden rounded-[26px] border lg:absolute lg:top-4 lg:right-4 lg:bottom-6 lg:z-20 lg:flex",
+          "hidden h-[min(100dvh-6rem,calc(100dvh-4rem))] w-[min(420px,calc(100vw-3rem))] flex-col overflow-hidden rounded-[26px] border md:absolute md:top-4 md:right-4 md:bottom-6 md:z-20 md:flex",
         )}
       >
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5">{panel}</div>
         <div className="border-border/50 shrink-0 border-t px-5 py-4">{footer}</div>
       </aside>
 
-      <div className="lg:hidden">
+      <div className="md:hidden">
         <RouteBottomSheet initialSnap={initialSnap} footer={footer} className={cn(panelSurface, "rounded-t-[26px] border-x border-t")}>
           {panel}
         </RouteBottomSheet>

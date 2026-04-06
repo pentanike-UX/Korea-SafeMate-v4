@@ -150,7 +150,7 @@ export function ExploreWorkspaceClient({
             title={r}
             onClick={() => setMapRegion(r)}
             className={cn(
-              "size-8 rounded-full text-[10px] font-bold",
+              "flex size-10 items-center justify-center rounded-full text-[11px] font-bold",
               mapRegion === r ? "bg-[var(--text-strong)] text-[var(--text-on-brand)]" : "bg-card ring-1 ring-[var(--border-default)]",
             )}
           >
