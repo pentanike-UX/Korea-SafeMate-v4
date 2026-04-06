@@ -1,0 +1,36 @@
+---
+description: Korea SafeMate v4 — product engineering defaults
+globs:
+  - "**/*.{ts,tsx,md}"
+alwaysApply: true
+---
+
+# Korea SafeMate — Cursor rules
+
+## 제품·구조
+
+- **큰 구조 변경 전** `docs/03_information-architecture.md` 와 관련 `docs/*.md` 를 확인한다.
+- 작업이 라우트·데이터·API·UX에 영향을 주면 **관련 문서 업데이트 여부**를 스스로 점검한다 (`docs/04_screen-spec.md`, `07_api-env.md` 등).
+- **불필요한 추상화·중복 패턴**을 추가하지 않는다. 기존 `app-shell`, `workspace-registry`, `data/v4` 패턴을 우선한다.
+
+## UX
+
+- **모바일 우선**: 맵 캔버스는 탭바·시트·세이프 에리어를 고려한다.
+- **Empty / loading / error** 상태를 누락하지 않는다 (지도·리스트·폼).
+- 퍼블릭 **맵 워크스페이스**와 **사이트 셸** `(site)` 의 UX 일관성을 해치지 않는다.
+
+## 코드
+
+- 서비스 기능을 **요청 없이 대규모 변경**하지 않는다. 정리·문서·버그픽스 범위를 명시한다.
+- `pnpm` / Node 20.x (`package.json` engines) 기준.
+- Next 16: `AGENTS.md` 및 `node_modules/next/dist/docs/` 의 갱신 사항을 의심한다.
+
+## Git·기록
+
+- 의미 있는 기능 묶음은 `scripts/log-work.sh` 로 한 줄 남긴다.
+- 릴리스 단위는 `scripts/log-release.sh` 로 `docs/11_release-log.md` 에 블록 추가.
+- 아키텍처 결정은 `scripts/new-adr.sh` 로 `docs/09_decision-log.md` 에 스텁 추가 후 본문 보강.
+
+## i18n
+
+- 사용자 노출 문자열은 `messages/en.json` 등에 추가하고 **ko/ja 동기화**를 시도한다 (없으면 TODO 주석 또는 영문 폴백 명시).

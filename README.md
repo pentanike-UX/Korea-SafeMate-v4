@@ -1,6 +1,11 @@
-# Korea SafeMate v3
+# Korea SafeMate v3 / v4 레포
 
 v2 코드베이스를 기반으로 한 **초기 안정 베이스**입니다. 구조를 갈아엎지 않고, 공개 홈·공통 UI 토큰·테마·헤더를 v3 방향(모바일 우선, 라이트/다크, 중립 톤 + 블루 포인트)으로 정리합니다.
+
+**현재 브랜치 기준으로는 v4 큐레이션(동선·스팟·플래너)과 지도 우선 워크스페이스(Wayly UX)가 추가**되어 있습니다. 제품·구조 요약은 [`docs/00_project-overview.md`](docs/00_project-overview.md)를 보세요.
+
+- **패키지 매니저**: `pnpm` 권장 (`package.json`의 `packageManager` 참고).
+- **작업/릴리스 로그**: `scripts/log-work.sh`, `scripts/log-release.sh`, `scripts/new-adr.sh` → `docs/` 연동.
 
 ## 요구 사항
 
